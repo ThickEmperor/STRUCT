@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int main() {
   char palabra1[31],palabra2[31];
 
