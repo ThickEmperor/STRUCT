@@ -6,7 +6,7 @@ int main() {
   int aguante, num_filas;
   long long int diamantes[SIZE];
   long long int suma1 = 0, suma2 = 0;
-  
+
   scanf("%d",&num_filas );//se pide numero de filas
 
   printf("Ingrese los diamantes en cada fila");
@@ -19,8 +19,10 @@ int main() {
 
 
   for(long long int i = 0; i < num_filas; i++){
-        if((num_filas - i) < aguante) continue;
+
         for(long long int  j = 0; j < aguante; j++){
+            if ((i+j)>=num_filas)
+            continue;
             suma1 += diamantes[i + j];
         }
         if(suma1 >= suma2){
