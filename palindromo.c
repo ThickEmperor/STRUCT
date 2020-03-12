@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 
 char* voltea_cadena(char arr[]) {
@@ -36,13 +37,16 @@ int main()
 
   new_str = voltea_cadena(str);
 
-  for (size_t j = 0; j < (strlen(new_str))%2; j++)
-  {
-    if (new_str[j+1==new_str[(strlen(new_str)-1])
-     {
-      palabras[j]=1;
-    }
+  for (int i = 0; new_str[i] != '\0'; ++i){
+		new_str[i] = toupper(new_str[i]);
+	}
+  if (strlen(new_str)==2) {
+    palabras[i]=1;
   }
+
+  if (new_str[strlen(new_str)-1]==new_str[1]&&new_str[strlen(new_str)-2]==new_str[2])//compara las cadenas, toma el último número de el string y lo compara con el primero
+  {
+    palabras[i]=1;
   }
 
   }
