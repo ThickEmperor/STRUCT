@@ -36,9 +36,13 @@ int main()
 
   new_str = voltea_cadena(str);
 
-  if (new_str[strlen(new_str)-1]==new_str[1]&&new_str[strlen(new_str)-2]==new_str[2])//compara las cadenas, toma el último número de el string y lo compara con el primero
+  for (size_t j = 0; j < (strlen(new_str))%2; j++)
   {
-    palabras[i]=1;
+    if (new_str[j+1==new_str[(strlen(new_str)-1])
+     {
+      palabras[j]=1;
+    }
+  }
   }
 
   }
