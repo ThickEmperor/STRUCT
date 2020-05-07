@@ -21,7 +21,7 @@ int main()
     char c;
     FILE *aarchivo;
 
-    aarchivo = fopen("salida.txt", "rb");
+    aarchivo = fopen("salida.bin", "rb");
     if(aarchivo == NULL)
     {
         printf("Error al abrir archivo.\n");
@@ -47,7 +47,7 @@ int main()
       scanf("%hu", &array_de_personas[i].edad);
       while ((c = getc(stdin)) != '\n' && c != EOF); //Esta linea hace flush a la entrada
 
-    aarchivo = fopen("salida.txt", "wb");
+    aarchivo = fopen("salida.bin", "wb");
     if(aarchivo == NULL)
     {
         printf("Error al abrir archivo.\n");
