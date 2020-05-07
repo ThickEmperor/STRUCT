@@ -65,15 +65,7 @@ int main()
     for (size_t i = 0; i < 2; i++)
 		{
 
-      fscanf(aarchivo,"%lu", &array_de_personas[i].id_persona);
-      fgets(array_de_personas[i].nombre,99,aarchivo);
-      fscanf(aarchivo,"%c", &array_de_personas[i].sexo);
-      fgets(array_de_personas[i].direccion,99,aarchivo);
-      fgets(array_de_personas[i].religion,49,aarchivo);
-      fgets(array_de_personas[i].escolaridad,19,aarchivo);
-      fscanf(aarchivo,"%hu", &array_de_personas[i].edad);
-
-      printf("\n%lu\n%s\n%c\n%s\n%s\n%s\n%hu", array_de_personas[i].id_persona, array_de_personas[i].nombre, array_de_personas[i].sexo, array_de_personas[i].direccion, array_de_personas[i].religion, array_de_personas[i].escolaridad, array_de_personas[i].edad);
+      printf("\n%lu\n%s\n%c\n%s\n%s\n%s\n%hu\n", array_de_personas[i].id_persona, array_de_personas[i].nombre, array_de_personas[i].sexo, array_de_personas[i].direccion, array_de_personas[i].religion, array_de_personas[i].escolaridad, array_de_personas[i].edad);
     }
 
 	}
