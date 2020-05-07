@@ -21,7 +21,7 @@ int main()
     char c;
     FILE *aarchivo;
 
-    aarchivo = fopen("salida.txt", "r");
+    aarchivo = fopen("salida.txt", "rb");
     if(aarchivo == NULL)
     {
         printf("Error al abrir archivo.\n");
@@ -47,7 +47,7 @@ int main()
       scanf("%hu", &array_de_personas[i].edad);
       while ((c = getc(stdin)) != '\n' && c != EOF); //Esta linea hace flush a la entrada
 
-    aarchivo = fopen("salida.txt", "w");
+    aarchivo = fopen("salida.txt", "wb");
     if(aarchivo == NULL)
     {
         printf("Error al abrir archivo.\n");
@@ -57,27 +57,29 @@ int main()
   fwrite(array_de_personas, sizeof(Persona), 2, aarchivo);
 
   }
-  else {
+  else
+	{
     fread(array_de_personas, sizeof(Persona),2, aarchivo);
-    printf("%s\n",array_de_personas );
-  }
-    //for (size_t i = 0; i < 2; i++) {
-      /*
-      fscanf(aarchivo,"%lu", &array_de_personas[0].id_persona);
-      fgets(array_de_personas[0].nombre,99,aarchivo);
-      fscanf(aarchivo,"%c", &array_de_personas[0].sexo);
-      fgets(array_de_personas[0].direccion,99,aarchivo);
-      fgets(array_de_personas[0].religion,49,aarchivo);
-      fgets(array_de_personas[0].escolaridad,19,aarchivo);
-      fscanf(aarchivo,"%hu", &array_de_personas[0].edad);
 
-      printf("\n%lu\n%s\n%c\n%s\n%s\n%s\n%hu", array_de_personas[0].id_persona, array_de_personas[0].nombre, array_de_personas[0].sexo, array_de_personas[0].direccion, array_de_personas[0].religion, array_de_personas[0].escolaridad, array_de_personas[0].edad);
+
+    for (size_t i = 0; i < 2; i++)
+		{
+
+      fscanf(aarchivo,"%lu", &array_de_personas[i].id_persona);
+      fgets(array_de_personas[i].nombre,99,aarchivo);
+      fscanf(aarchivo,"%c", &array_de_personas[i].sexo);
+      fgets(array_de_personas[i].direccion,99,aarchivo);
+      fgets(array_de_personas[i].religion,49,aarchivo);
+      fgets(array_de_personas[i].escolaridad,19,aarchivo);
+      fscanf(aarchivo,"%hu", &array_de_personas[i].edad);
+
+      printf("\n%lu\n%s\n%c\n%s\n%s\n%s\n%hu", array_de_personas[i].id_persona, array_de_personas[i].nombre, array_de_personas[i].sexo, array_de_personas[i].direccion, array_de_personas[i].religion, array_de_personas[i].escolaridad, array_de_personas[i].edad);
     }
 
-    //}
+	}
 
 
-    for (size_t i = 0; i < 2; i++) {
+    /*for (size_t i = 0; i < 2; i++) {
       printf("%s\n%c\n%s\n%s\n%s\n%d",array_de_personas[i].nombre,array_de_personas[i].sexo, array_de_personas[i].direccion,array_de_personas[i].religion,array_de_personas[i].escolaridad, array_de_personas[i].edad );
     }*/
 
