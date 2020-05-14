@@ -86,7 +86,8 @@ char mostrar_personas(Persona array_personas[10]) //funcion para mostrar la list
 {
 	for (size_t i = 0; i < 2; i++)
 	{
-		printf("\nPersona #%lu\nNombre:%s\nSexo:%c\nDireccion: %s\nReligion: %s\nEscolaridad: %s\nEdad: %hu\n", array_personas[i].id_persona, array_personas[i].nombre, array_personas[i].sexo, array_personas[i].direccion, array_personas[i].religion, array_personas[i].escolaridad, array_personas[i].edad);
+		printf("\nPersona #%lu\nNombre:%sSexo:%c\nDireccion: %sReligion: %sEscolaridad: %sEdad: %hu\n", array_personas[i].id_persona, array_personas[i].nombre, array_personas[i].sexo, array_personas[i].direccion, array_personas[i].religion, array_personas[i].escolaridad, array_personas[i].edad);
+		printf("______________________");
 	}
 	return 0;
 }
