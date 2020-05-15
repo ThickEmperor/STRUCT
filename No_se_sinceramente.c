@@ -16,7 +16,7 @@ char cargar_datos(Persona array_personas[2]) //Función para cargar datos
 	int c;
 	char respuesta1='n';
 	FILE *aarchivo;
-	aarchivo = fopen("archivo.bin", "rb");
+	aarchivo = fopen("archivo.bin", "rb+");
 	if(aarchivo == NULL)
 	{
 		printf("Archivo inexistente o error en la apertura.\n");
@@ -86,7 +86,8 @@ char mostrar_personas(Persona array_personas[10]) //funcion para mostrar la list
 {
 	for (size_t i = 0; i < 2; i++)
 	{
-		printf("\nPersona #%lu\nNombre:%s\nSexo:%c\nDireccion: %s\nReligion: %s\nEscolaridad: %s\nEdad: %hu\n", array_personas[i].id_persona, array_personas[i].nombre, array_personas[i].sexo, array_personas[i].direccion, array_personas[i].religion, array_personas[i].escolaridad, array_personas[i].edad);
+		printf("\nPersona #%lu\nNombre:%sSexo:%c\nDireccion: %sReligion: %sEscolaridad: %sEdad: %hu\n", array_personas[i].id_persona, array_personas[i].nombre, array_personas[i].sexo, array_personas[i].direccion, array_personas[i].religion, array_personas[i].escolaridad, array_personas[i].edad);
+		printf("______________________");
 	}
 	return 0;
 }
@@ -94,7 +95,7 @@ char guardar_datos(Persona array_personas[10]) //funcion para guardar datos
 {
 	FILE *aarchivo;
 	printf("\nGuardando datos en archivo.bin\n");
-	aarchivo = fopen("archivo.bin", "wb");
+	aarchivo = fopen("archivo.bin", "wb+");
 	if(aarchivo == NULL)
 	{
 		printf("Error al abrir archivo.\n");
@@ -126,58 +127,74 @@ int main() //función principal
 				opcion=0;
 				cargar_datos(array_personas); //se llama a función cargar datos
 				printf("Que desea hacer ahora? \n");
-				printf("1.-Modificar datos de una persona. \n");
-				printf("2.-Mostrar lista de personas.\n");
-				printf("3.-Guardar datos en archivo.\n");
+				printf("\n1.-Cargar datos de archivo.\n");
+                printf("2.-Modificar datos de una persona.\n");
+                printf("3.-Mostrar la lista de personas.\n");
+                printf("4.-Guardar datos en archivo.\n");
 				scanf("%d",&opcion);
         switch(opcion)
     		{
-          case 1: //cargar datos/modificar persona
-						modificar_persona(array_personas); //funcion para modificar persona
+          case 1:
+						cargar_datos(array_personas);
           	break;
-					case 2: //cargar datos/mostrar lista personas
-						mostrar_personas(array_personas); //funcion para mostrar personas
+					case 2:
+						modificar_persona(array_personas);
           	break;
-					case 3: //cargar datos/guardar datos en archivo
-						guardar_datos(array_personas); //funcion para guardar datoss
+					case 3:
+						mostrar_personas(array_personas);
           	break;
+                    case 4:
+                        guardar_datos(array_personas);
+            break;
         }
       	break;
       case 2: //case para modificar datos de persona
 				opcion=0;
 				modificar_persona(array_personas);
 				printf("\nQue desea hacer ahora? \n");
-				printf("1.-Mostrar lista de personas.\n");
-				printf("2.-Guardar datos en archivo\n");
+                printf("\n1.-Cargar datos de archivo.\n");
+                printf("2.-Modificar datos de una persona.\n");
+                printf("3.-Mostrar la lista de personas.\n");
+                printf("4.-Guardar datos en archivo.\n");
 				scanf("%d",&opcion);
         switch(opcion)
     		{
-          case 1: //modificar_persona/mostrar personas
-						mostrar_personas(array_personas); //funcion para mostrar lista
+          case 1:
+						cargar_datos(array_personas);
           	break;
-					case 2: //modificar_persona/guardar datos en archivo
-						guardar_datos(array_personas); //funcion para guardar datos
+					case 2:
+						modificar_persona(array_personas);
           	break;
+					case 3:
+						mostrar_personas(array_personas);
+          	break;
+                    case 4:
+                        guardar_datos(array_personas);
+            break;
         }
       	break;
       case 3: //mostrar lista de personas
 				opcion=0;
 				mostrar_personas(array_personas);
 				printf("\n1.-Cargar datos de archivo.\n");
-			  printf("2.-Modificar datos de una persona.\n");
-				printf("3.-Guardar datos en archivo.\n");
+                printf("2.-Modificar datos de una persona.\n");
+                printf("3.-Mostrar la lista de personas.\n");
+                printf("4.-Guardar datos en archivo.\n");
 				scanf("%d",&opcion);
 				switch(opcion)
 				{
-					case 1: //mostrar lista/ cargar_datos
-						cargar_datos(array_personas); //funcion para mostrar lista
-						break;
-					case 2: //mostrar lista/ modificar datos de persona
-						modificar_persona(array_personas); //funcion para guardar datos
-						break;
-					case 3: //mostrar lista / guardar_datos
-						guardar_datos(array_personas); //funcion para guardar datos
-						break;
+					case 1:
+						cargar_datos(array_personas);
+          	break;
+					case 2:
+						modificar_persona(array_personas);
+          	break;
+					case 3:
+						mostrar_personas(array_personas);
+          	break;
+                    case 4:
+                        guardar_datos(array_personas);
+            break;
 				}
 	      break;
       case 4:
@@ -192,3 +209,4 @@ int main() //función principal
 	while(respuesta=='n'||respuesta=='N');
 		return 0;
 }
+
